@@ -35,9 +35,6 @@ const Header = () => {
             <Link to="/browse" className="text-body text-foreground hover:text-primary transition-colors">
               Browse
             </Link>
-            <Link to="/search" className="text-body text-foreground hover:text-primary transition-colors">
-              Search
-            </Link>
           </nav>
 
           {/* Search Bar - Hidden on mobile */}
