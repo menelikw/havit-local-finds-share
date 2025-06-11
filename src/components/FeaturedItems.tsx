@@ -82,19 +82,19 @@ const sampleItems = [
 
 const FeaturedItems = () => {
   return (
-    <section className="py-16 px-4">
+    <section className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl heading-hierarchy-1 text-gray-900 mb-6 leading-tight">
             Trending in your 
-            <span className="text-gradient-primary"> neighbourhood</span>
+            <span className="text-havit-green"> neighbourhood</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto text-refined">
             Discover amazing items shared by people near you
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {sampleItems.map((item, index) => (
             <div 
               key={item.id} 
@@ -106,8 +106,8 @@ const FeaturedItems = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-havit-green to-havit-blue text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+        <div className="text-center mt-16">
+          <button className="bg-havit-green text-white px-10 py-4 rounded-2xl heading-hierarchy-2 hover:shadow-2xl transition-all duration-300 hover:scale-105">
             View All Items
           </button>
         </div>

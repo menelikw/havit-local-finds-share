@@ -56,40 +56,38 @@ const categories = [
 
 const CategoryGrid = () => {
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-24 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-fredoka font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl heading-hierarchy-1 text-gray-900 mb-6 leading-tight">
             How would you like to 
             <span className="text-havit-green"> share</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto text-refined">
             Choose from our community-driven categories and start making a difference today
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category, index) => (
             <Card 
               key={category.id} 
-              className="group cursor-pointer border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in rounded-3xl"
+              className="group cursor-pointer border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden animate-fade-in rounded-3xl bg-white"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-0">
-                <div className={`h-32 ${category.bgColor} relative overflow-hidden`}>
-                  <div className="absolute top-4 right-4">
-                    <category.icon className={`w-8 h-8 ${category.bgColor === 'bg-havit-yellow' ? 'text-gray-900' : 'text-white'}`} />
-                  </div>
+                <div className={`h-40 ${category.bgColor} relative overflow-hidden flex items-center justify-center`}>
+                  <category.icon className={`w-12 h-12 ${category.bgColor === 'bg-havit-yellow' ? 'text-gray-900' : 'text-white'} transform group-hover:scale-110 transition-transform duration-300`} />
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-fredoka font-bold text-gray-900 mb-2 group-hover:text-havit-green transition-colors duration-300">
+                <div className="p-8">
+                  <h3 className="text-2xl heading-hierarchy-1 text-gray-900 mb-3 group-hover:text-havit-green transition-colors duration-300">
                     {category.title}
                   </h3>
-                  <p className="text-gray-600 mb-3 leading-relaxed font-inter">
+                  <p className="text-gray-600 mb-4 leading-relaxed text-refined text-base">
                     {category.description}
                   </p>
-                  <p className="text-sm text-havit-green font-fredoka font-medium">
+                  <p className="text-sm text-havit-green heading-hierarchy-2">
                     {category.items}
                   </p>
                 </div>

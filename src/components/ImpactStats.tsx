@@ -35,14 +35,26 @@ const stats = [
 
 const ImpactStats = () => {
   return (
-    <section className="py-16 px-4 bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-fredoka font-bold text-white mb-4">
+    <section className="py-24 px-4 bg-gray-900 relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full" viewBox="0 0 60 60" fill="none">
+          <defs>
+            <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="1" fill="white"/>
+            </pattern>
+          </defs>
+          <rect width="60" height="60" fill="url(#dots)" />
+        </svg>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl heading-hierarchy-1 text-white mb-6 leading-tight">
             Our Community 
             <span className="text-havit-yellow"> Impact</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-inter">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto text-refined">
             Together, we're creating a more sustainable future, one share at a time
           </p>
         </div>
@@ -51,34 +63,34 @@ const ImpactStats = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="text-center group animate-fade-in"
+              className="text-center group animate-fade-in bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className={`w-20 h-20 mx-auto mb-6 rounded-2xl ${stat.bgColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                <stat.icon className="w-10 h-10 text-white" />
+              <div className={`w-24 h-24 mx-auto mb-6 rounded-3xl ${stat.bgColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <stat.icon className="w-12 h-12 text-white" />
               </div>
               
-              <h3 className="text-4xl font-fredoka font-bold text-white mb-2">
+              <h3 className="text-4xl lg:text-5xl heading-hierarchy-1 text-white mb-3">
                 {stat.number}
               </h3>
               
-              <p className="text-lg font-fredoka font-semibold text-gray-200 mb-1">
+              <p className="text-lg heading-hierarchy-2 text-gray-200 mb-2">
                 {stat.label}
               </p>
               
-              <p className="text-sm text-gray-400 font-inter">
+              <p className="text-sm text-gray-400 text-refined">
                 {stat.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-16">
-          <p className="text-gray-300 text-lg mb-6 font-inter">
+        <div className="text-center mt-20">
+          <p className="text-gray-300 text-xl mb-8 text-refined">
             Ready to make your impact?
           </p>
-          <button className="bg-havit-yellow text-gray-900 px-8 py-3 rounded-full font-fredoka font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
-            Join the Movement 🚀
+          <button className="bg-havit-yellow text-gray-900 px-10 py-4 rounded-2xl heading-hierarchy-2 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+            Join the Movement
           </button>
         </div>
       </div>

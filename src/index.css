@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Havit Design System - Clean, Cute, Fun */
+/* Havit Design System - Sophisticated, Bold, Playful */
 
 @layer base {
   :root {
@@ -37,7 +37,7 @@
 
     --radius: 0.75rem;
 
-    /* Havit Custom Colors */
+    /* Havit Sophisticated Colors */
     --havit-green: 142 76% 36%;
     --havit-green-light: 142 76% 45%;
     --havit-blue: 217 91% 60%;
@@ -87,11 +87,27 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-optical-sizing: auto;
   }
 }
 
 @layer utilities {
-  .text-playful {
+  .text-sophisticated {
     font-family: 'Fredoka', cursive;
+    font-feature-settings: normal;
+    letter-spacing: -0.02em;
+  }
+  
+  .heading-hierarchy-1 {
+    @apply text-sophisticated font-bold tracking-tight;
+  }
+  
+  .heading-hierarchy-2 {
+    @apply text-sophisticated font-semibold tracking-tight;
+  }
+  
+  .text-refined {
+    @apply font-inter font-medium tracking-wide;
   }
 }
