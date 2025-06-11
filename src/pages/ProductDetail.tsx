@@ -79,18 +79,63 @@ const ProductDetail = () => {
           Back to listings
         </Link>
 
-        <div className="space-y-6">
-          {/* Title and Actions */}
-          <div className="flex items-start justify-between">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Image Gallery */}
+          <div className="space-y-4">
+            <div className="aspect-square rounded-lg overflow-hidden bg-muted">
+              <img 
+                src={item.images[selectedImage]} 
+                alt={item.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              {item.images.map((image, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className={`aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
+                    selectedImage === index ? 'border-primary' : 'border-border hover:border-primary/50'
+                  }`}
+                >
+                  <img 
+                    src={image} 
+                    alt={`${item.title} ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Item Details */}
+          <div className="space-y-6">
             <div>
-              <Badge className={`${typeColors[item.type]} mb-2`}>
-                {typeLabels[item.type]}
-              </Badge>
-              <h1 className="text-display text-3xl text-foreground">{item.title}</h1>
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <Badge className={`${typeColors[item.type]} mb-2`}>
+                    {typeLabels[item.type]}
+                  </Badge>
+                  <h1 className="text-display text-3xl text-foreground">{item.title}</h1>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" size="sm">
+                    <Heart className="w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <Share2 className="w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <Flag className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+
               {item.price && (
-                <p className="text-display text-2xl text-primary font-bold mt-2">{item.price}</p>
+                <p className="text-display text-2xl text-primary font-bold mb-4">{item.price}</p>
               )}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mt-4">
+
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
                   {item.location}
@@ -100,126 +145,76 @@ const ProductDetail = () => {
                   {item.timeAgo}
                 </div>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm">
-                <Heart className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="sm">
-                <Share2 className="w-4 h-4" />
-              </Button>
-              <Button variant="outline" size="sm">
-                <Flag className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
 
-          {/* Main Content Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Image Gallery (Quarter Size) */}
-            <div className="lg:col-span-1">
-              <div className="space-y-4">
-                <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                  <img 
-                    src={item.images[selectedImage]} 
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
+              <p className="text-body text-foreground leading-relaxed">{item.description}</p>
+            </div>
+
+            {/* Item Specifications */}
+            <Card className="p-6">
+              <h3 className="text-heading text-lg font-semibold mb-4">Item Details</h3>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <span className="text-muted-foreground">Condition:</span>
+                  <Badge variant="outline" className="ml-2">{item.condition}</Badge>
                 </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {item.images.map((image, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setSelectedImage(index)}
-                      className={`aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
-                        selectedImage === index ? 'border-primary' : 'border-border hover:border-primary/50'
-                      }`}
-                    >
-                      <img 
-                        src={image} 
-                        alt={`${item.title} ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
+                <div>
+                  <span className="text-muted-foreground">Category:</span>
+                  <span className="ml-2 text-foreground">{item.category}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">Dimensions:</span>
+                  <span className="ml-2 text-foreground">{item.dimensions}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">Material:</span>
+                  <span className="ml-2 text-foreground">{item.material}</span>
+                </div>
+              </div>
+              
+              <div className="mt-4">
+                <span className="text-muted-foreground text-sm">Tags:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {item.tags.map((tag) => (
+                    <Badge key={tag} variant="outline" className="text-xs">
+                      #{tag}
+                    </Badge>
                   ))}
                 </div>
               </div>
-            </div>
+            </Card>
 
-            {/* Right Column - Details and User Info */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Description */}
-              <div>
-                <p className="text-body text-foreground leading-relaxed">{item.description}</p>
-              </div>
-
-              {/* Item Details - Inline Format */}
-              <div className="bg-muted/50 rounded-lg p-6">
-                <h3 className="text-heading text-lg font-semibold mb-4">Item Details</h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-                  <div>
-                    <span className="text-muted-foreground block">Condition</span>
-                    <Badge variant="outline" className="mt-1">{item.condition}</Badge>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block">Category</span>
-                    <span className="text-foreground font-medium">{item.category}</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block">Dimensions</span>
-                    <span className="text-foreground font-medium">{item.dimensions}</span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block">Material</span>
-                    <span className="text-foreground font-medium">{item.material}</span>
-                  </div>
-                </div>
-                
-                <div className="mt-4">
-                  <span className="text-muted-foreground text-sm block mb-2">Tags</span>
-                  <div className="flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs">
-                        #{tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* User Info */}
-              <Card className="p-6">
-                <h3 className="text-heading text-lg font-semibold mb-4">Shared by</h3>
-                <div className="flex items-center gap-4">
-                  <Avatar className="w-12 h-12">
-                    <AvatarFallback className="bg-primary text-primary-foreground">
-                      {item.user.avatar}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <h4 className="text-heading font-semibold text-foreground">{item.user.name}</h4>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        {item.user.rating} ({item.user.reviews} reviews)
-                      </div>
-                      <span>•</span>
-                      <span>Member since {item.user.memberSince}</span>
+            {/* User Info */}
+            <Card className="p-6">
+              <h3 className="text-heading text-lg font-semibold mb-4">Shared by</h3>
+              <div className="flex items-center gap-4">
+                <Avatar className="w-12 h-12">
+                  <AvatarFallback className="bg-primary text-primary-foreground">
+                    {item.user.avatar}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="flex-1">
+                  <h4 className="text-heading font-semibold text-foreground">{item.user.name}</h4>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      {item.user.rating} ({item.user.reviews} reviews)
                     </div>
+                    <span>•</span>
+                    <span>Member since {item.user.memberSince}</span>
                   </div>
                 </div>
-              </Card>
-
-              {/* Action Buttons */}
-              <div className="flex gap-4">
-                <Button size="lg" className="flex-1">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Contact {item.user.name.split(' ')[0]}
-                </Button>
-                <Button variant="outline" size="lg">
-                  View Profile
-                </Button>
               </div>
+            </Card>
+
+            {/* Action Buttons */}
+            <div className="flex gap-4">
+              <Button size="lg" className="flex-1">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Contact {item.user.name.split(' ')[0]}
+              </Button>
+              <Button variant="outline" size="lg">
+                View Profile
+              </Button>
             </div>
           </div>
         </div>
