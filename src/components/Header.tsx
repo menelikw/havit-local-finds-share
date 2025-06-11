@@ -11,10 +11,10 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-havit-green to-havit-blue rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">H</span>
+              <div className="w-10 h-10 bg-havit-green rounded-xl flex items-center justify-center">
+                <span className="text-white font-fredoka font-bold text-lg">H</span>
               </div>
-              <span className="text-2xl font-bold text-gray-900">Havit</span>
+              <span className="text-2xl font-fredoka font-bold text-gray-900">Havit</span>
             </div>
           </div>
 
@@ -25,7 +25,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Search for items, people, or categories..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-havit-green focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-havit-green focus:border-transparent font-inter"
               />
             </div>
           </div>
@@ -35,30 +35,30 @@ const Header = () => {
             {/* Add Item Button */}
             <Button 
               size="sm" 
-              className="hidden sm:flex bg-gradient-to-r from-havit-green to-havit-green-light hover:shadow-lg transition-all duration-300 hover:scale-105"
+              className="hidden sm:flex bg-havit-green hover:bg-havit-green-light transition-all duration-300 hover:scale-105 rounded-2xl font-fredoka font-medium"
             >
               <Plus className="w-4 h-4 mr-2" />
               Add Item
             </Button>
 
             {/* Mobile Add Button */}
-            <Button size="sm" className="sm:hidden bg-havit-green hover:bg-havit-green-light">
+            <Button size="sm" className="sm:hidden bg-havit-green hover:bg-havit-green-light rounded-2xl">
               <Plus className="w-4 h-4" />
             </Button>
 
             {/* Notifications */}
-            <Button variant="ghost" size="sm" className="relative">
+            <Button variant="ghost" size="sm" className="relative rounded-2xl">
               <Bell className="w-5 h-5" />
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-havit-orange rounded-full"></span>
             </Button>
 
             {/* Profile */}
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" className="rounded-2xl">
               <User className="w-5 h-5" />
             </Button>
 
             {/* Mobile Menu */}
-            <Button variant="ghost" size="sm" className="md:hidden">
+            <Button variant="ghost" size="sm" className="md:hidden rounded-2xl">
               <Menu className="w-5 h-5" />
             </Button>
           </div>
@@ -71,7 +71,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search items..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-havit-green focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-havit-green focus:border-transparent font-inter"
             />
           </div>
         </div>

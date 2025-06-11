@@ -9,7 +9,7 @@ const categories = [
     title: 'Give & Get',
     description: 'Share items freely with your community',
     icon: Heart,
-    gradient: 'from-havit-green to-havit-green-light',
+    bgColor: 'bg-havit-pink',
     items: '1,234 items available'
   },
   {
@@ -17,7 +17,7 @@ const categories = [
     title: 'Lend & Borrow',
     description: 'Temporary exchanges that help everyone',
     icon: Users,
-    gradient: 'from-havit-blue to-cyan-400',
+    bgColor: 'bg-havit-blue',
     items: '856 items available'
   },
   {
@@ -25,7 +25,7 @@ const categories = [
     title: 'Buy & Sell',
     description: 'Pre-loved items at great prices',
     icon: ShoppingBag,
-    gradient: 'from-havit-yellow to-havit-orange',
+    bgColor: 'bg-havit-yellow',
     items: '2,456 items available'
   },
   {
@@ -33,7 +33,7 @@ const categories = [
     title: 'Swap',
     description: 'Trade items with fellow community members',
     icon: RefreshCw,
-    gradient: 'from-havit-purple to-havit-pink',
+    bgColor: 'bg-havit-purple',
     items: '678 items available'
   },
   {
@@ -41,7 +41,7 @@ const categories = [
     title: 'Reclaimed',
     description: 'Unique upcycled and handmade treasures',
     icon: Hammer,
-    gradient: 'from-emerald-500 to-teal-500',
+    bgColor: 'bg-havit-orange',
     items: '234 items available'
   },
   {
@@ -49,7 +49,7 @@ const categories = [
     title: 'Featured',
     description: 'Handpicked items from your community',
     icon: Gift,
-    gradient: 'from-rose-400 to-pink-500',
+    bgColor: 'bg-havit-green',
     items: '89 items available'
   }
 ];
@@ -59,11 +59,11 @@ const CategoryGrid = () => {
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-fredoka font-bold text-gray-900 mb-4">
             How would you like to 
-            <span className="text-gradient-primary"> share</span>?
+            <span className="text-havit-green"> share</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-inter">
             Choose from our community-driven categories and start making a difference today
           </p>
         </div>
@@ -72,26 +72,24 @@ const CategoryGrid = () => {
           {categories.map((category, index) => (
             <Card 
               key={category.id} 
-              className="group cursor-pointer border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in"
+              className="group cursor-pointer border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in rounded-3xl"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-0">
-                <div className={`h-32 bg-gradient-to-br ${category.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
+                <div className={`h-32 ${category.bgColor} relative overflow-hidden`}>
                   <div className="absolute top-4 right-4">
-                    <category.icon className="w-8 h-8 text-white/80" />
+                    <category.icon className={`w-8 h-8 ${category.bgColor === 'bg-havit-yellow' ? 'text-gray-900' : 'text-white'}`} />
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-havit-green transition-colors duration-300">
+                  <h3 className="text-xl font-fredoka font-bold text-gray-900 mb-2 group-hover:text-havit-green transition-colors duration-300">
                     {category.title}
                   </h3>
-                  <p className="text-gray-600 mb-3 leading-relaxed">
+                  <p className="text-gray-600 mb-3 leading-relaxed font-inter">
                     {category.description}
                   </p>
-                  <p className="text-sm text-havit-green font-medium">
+                  <p className="text-sm text-havit-green font-fredoka font-medium">
                     {category.items}
                   </p>
                 </div>

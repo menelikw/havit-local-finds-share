@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Havit Design System - Bright, Bold, Fun */
+/* Havit Design System - Clean, Cute, Fun */
 
 @layer base {
   :root {
@@ -45,10 +45,6 @@
     --havit-orange: 25 95% 53%;
     --havit-purple: 262 83% 58%;
     --havit-pink: 330 81% 60%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(var(--havit-green)) 0%, hsl(var(--havit-blue)) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--havit-yellow)) 0%, hsl(var(--havit-orange)) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--havit-purple)) 0%, hsl(var(--havit-pink)) 100%);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -95,39 +91,7 @@
 }
 
 @layer utilities {
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
-  
-  .gradient-secondary {
-    background: var(--gradient-secondary);
-  }
-  
-  .gradient-accent {
-    background: var(--gradient-accent);
-  }
-  
-  .text-gradient-primary {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
+  .text-playful {
+    font-family: 'Fredoka', cursive;
   }
 }
