@@ -131,7 +131,8 @@ export default {
 				'slide-up': 'slide-up 0.5s ease-out'
 			},
 			fontFamily: {
-				'inter': ['Inter', 'sans-serif']
+				'poppins': ['Poppins', 'sans-serif'],
+				'source': ['Source Sans Pro', 'sans-serif']
 			},
 			spacing: {
 				'18': '4.5rem',
