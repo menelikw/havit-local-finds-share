@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ItemCard from './ItemCard';
 
@@ -82,19 +81,18 @@ const sampleItems = [
 
 const FeaturedItems = () => {
   return (
-    <section className="py-24 px-4">
+    <section className="py-24 px-4 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl heading-hierarchy-1 text-gray-900 mb-6 leading-tight">
-            Trending in your 
-            <span className="text-havit-green"> neighbourhood</span>
+          <h2 className="text-display text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
+            Trending in your neighbourhood
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto text-refined">
+          <p className="text-body text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover amazing items shared by people near you
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sampleItems.map((item, index) => (
             <div 
               key={item.id} 
@@ -107,8 +105,8 @@ const FeaturedItems = () => {
         </div>
 
         <div className="text-center mt-16">
-          <button className="bg-havit-green text-white px-10 py-4 rounded-2xl heading-hierarchy-2 hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            View All Items
+          <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg text-heading transition-all duration-300 hover:scale-105">
+            View all items
           </button>
         </div>
       </div>

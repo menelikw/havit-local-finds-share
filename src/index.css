@@ -3,79 +3,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Havit Design System - Sophisticated, Bold, Playful */
+/* Havit Design System - Clean, Modern, Sustainable */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 13% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 13% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 13% 18%;
 
-    --primary: 142 76% 36%;
+    --primary: 152 69% 31%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 220 13% 18%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 220 13% 18%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 36%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 152 69% 31%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Havit Sophisticated Colors */
-    --havit-green: 142 76% 36%;
-    --havit-green-light: 142 76% 45%;
-    --havit-blue: 217 91% 60%;
-    --havit-yellow: 43 96% 56%;
-    --havit-orange: 25 95% 53%;
-    --havit-purple: 262 83% 58%;
-    --havit-pink: 330 81% 60%;
+    /* Havit Color Palette */
+    --forest-green: 152 69% 31%;
+    --sage-green: 152 25% 85%;
+    --warm-orange: 25 95% 53%;
+    --soft-blue: 217 91% 60%;
+    --charcoal: 220 13% 18%;
+    --warm-gray: 30 5% 85%;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 220 13% 18%;
+    --sidebar-primary: 152 69% 31%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 220 13% 18%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 152 69% 31%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 142 76% 45%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 43 96% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 142 76% 45%;
+    --background: 220 13% 9%;
+    --foreground: 0 0% 95%;
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 152 69% 45%;
+    --primary-foreground: 220 13% 9%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 220 13% 9%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 220 13% 15%;
+    --input: 220 13% 15%;
+    --ring: 152 69% 45%;
   }
 }
 
@@ -87,27 +86,34 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-feature-settings: 'cv11', 'ss01';
-    font-optical-sizing: auto;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 }
 
 @layer utilities {
-  .text-sophisticated {
-    font-family: 'Fredoka', cursive;
-    font-feature-settings: normal;
-    letter-spacing: -0.02em;
+  .text-display {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
   }
   
-  .heading-hierarchy-1 {
-    @apply text-sophisticated font-bold tracking-tight;
+  .text-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
   }
   
-  .heading-hierarchy-2 {
-    @apply text-sophisticated font-semibold tracking-tight;
+  .text-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
   }
-  
-  .text-refined {
-    @apply font-inter font-medium tracking-wide;
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 }

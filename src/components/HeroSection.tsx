@@ -1,69 +1,72 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Heart, Recycle, Users, Leaf } from 'lucide-react';
+import { ArrowRight, Heart, RefreshCw, Leaf, Users } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-havit-green px-4 overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
-          <defs>
-            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section className="relative bg-background py-24 lg:py-32 overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 bg-sage-green/20"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-warm-orange/5 rounded-full blur-3xl"></div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto">
-        <div className="mb-12 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl heading-hierarchy-1 text-white mb-8 leading-[0.95] max-w-5xl mx-auto">
-            Share. Care. 
-            <span className="block text-havit-yellow mt-2">Reduce Waste.</span>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-display text-4xl sm:text-6xl lg:text-7xl text-foreground mb-8 max-w-4xl mx-auto">
+            Share locally,
+            <br />
+            <span className="text-primary">impact globally</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto text-refined">
-            Connect with your local community to give, get, lend, borrow, buy, sell, and swap items. 
-            Together, we're building a sustainable future, one share at a time.
+          
+          <p className="text-body text-lg sm:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+            Connect with your community to give, lend, buy, sell, and swap items. 
+            Together, we're building a more sustainable future.
           </p>
-        </div>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20 animate-scale-in">
-          <Button size="lg" className="bg-white text-havit-green hover:bg-gray-50 text-lg px-10 py-4 rounded-2xl heading-hierarchy-2 transition-all duration-300 hover:scale-105 shadow-2xl">
-            Start Sharing
-          </Button>
-          <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-havit-green text-lg px-10 py-4 rounded-2xl heading-hierarchy-2 transition-all duration-300 hover:scale-105">
-            Browse Items
-          </Button>
-        </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg text-heading">
+              Start sharing
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-lg text-heading"
+            >
+              Browse items
+            </Button>
+          </div>
 
-        {/* Refined feature showcase */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-20 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <div className="flex flex-col items-center text-white group">
-            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl flex items-center justify-center mb-4 transform hover:scale-110 transition-all duration-300 group-hover:bg-havit-pink group-hover:border-havit-pink">
-              <Heart className="w-8 h-8" />
+          {/* Feature highlights */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            <div className="flex flex-col items-center group animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                <Heart className="w-8 h-8 text-primary" />
+              </div>
+              <span className="text-heading text-sm font-medium text-foreground">Give & Get</span>
             </div>
-            <span className="text-sm heading-hierarchy-2 text-white/90">Give & Get</span>
-          </div>
-          <div className="flex flex-col items-center text-white group">
-            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl flex items-center justify-center mb-4 transform hover:scale-110 transition-all duration-300 group-hover:bg-havit-blue group-hover:border-havit-blue">
-              <Users className="w-8 h-8" />
+            
+            <div className="flex flex-col items-center group animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="w-16 h-16 bg-soft-blue/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-soft-blue/20 transition-colors duration-300">
+                <Users className="w-8 h-8 text-soft-blue" />
+              </div>
+              <span className="text-heading text-sm font-medium text-foreground">Lend & Borrow</span>
             </div>
-            <span className="text-sm heading-hierarchy-2 text-white/90">Lend & Borrow</span>
-          </div>
-          <div className="flex flex-col items-center text-white group">
-            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl flex items-center justify-center mb-4 transform hover:scale-110 transition-all duration-300 group-hover:bg-havit-yellow group-hover:border-havit-yellow">
-              <Recycle className="w-8 h-8" />
+            
+            <div className="flex flex-col items-center group animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="w-16 h-16 bg-warm-orange/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-warm-orange/20 transition-colors duration-300">
+                <RefreshCw className="w-8 h-8 text-warm-orange" />
+              </div>
+              <span className="text-heading text-sm font-medium text-foreground">Buy & Sell</span>
             </div>
-            <span className="text-sm heading-hierarchy-2 text-white/90">Buy & Sell</span>
-          </div>
-          <div className="flex flex-col items-center text-white group">
-            <div className="w-20 h-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl flex items-center justify-center mb-4 transform hover:scale-110 transition-all duration-300 group-hover:bg-havit-orange group-hover:border-havit-orange">
-              <Leaf className="w-8 h-8" />
+            
+            <div className="flex flex-col items-center group animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors duration-300">
+                <Leaf className="w-8 h-8 text-emerald-500" />
+              </div>
+              <span className="text-heading text-sm font-medium text-foreground">Reclaimed</span>
             </div>
-            <span className="text-sm heading-hierarchy-2 text-white/90">Reclaimed</span>
           </div>
         </div>
       </div>
