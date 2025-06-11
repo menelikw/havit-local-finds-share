@@ -24,9 +24,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/browse" element={<ProductListing />} />
+          <Route path="/search" element={<ProductListing />} />
           <Route path="/item/:id" element={<ProductDetail />} />
           <Route path="/account" element={<UserAccount />} />
-          <Route path="/search" element={<SearchResults />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/post" element={<PostCreation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
