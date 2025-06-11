@@ -10,11 +10,9 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Upload, 
   X, 
   MapPin, 
   DollarSign,
-  Tag,
   ArrowLeft,
   Camera,
   Plus
@@ -86,7 +84,6 @@ const PostCreation = () => {
       <Header />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
         <div className="mb-8">
           <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4 transition-colors">
             <ArrowLeft className="w-4 h-4" />
@@ -97,7 +94,6 @@ const PostCreation = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Type Selection */}
           <Card>
             <CardHeader>
               <CardTitle>What would you like to do?</CardTitle>
@@ -125,7 +121,6 @@ const PostCreation = () => {
             </CardContent>
           </Card>
 
-          {/* Images */}
           <Card>
             <CardHeader>
               <CardTitle>Add Photos</CardTitle>
@@ -164,7 +159,6 @@ const PostCreation = () => {
             </CardContent>
           </Card>
 
-          {/* Basic Details */}
           <Card>
             <CardHeader>
               <CardTitle>Item Details</CardTitle>
@@ -256,7 +250,7 @@ const PostCreation = () => {
                   <Input
                     id="dimensions"
                     name="dimensions"
-                    placeholder="e.g., 12" x 8" x 4""
+                    placeholder="e.g., 12&quot; x 8&quot; x 4&quot;"
                     value={formData.dimensions}
                     onChange={handleInputChange}
                   />
@@ -276,7 +270,6 @@ const PostCreation = () => {
             </CardContent>
           </Card>
 
-          {/* Location */}
           <Card>
             <CardHeader>
               <CardTitle>Location</CardTitle>
@@ -297,13 +290,12 @@ const PostCreation = () => {
                   />
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
-                  We'll only show your general area to protect your privacy
+                  We&apos;ll only show your general area to protect your privacy
                 </p>
               </div>
             </CardContent>
           </Card>
 
-          {/* Submit */}
           <div className="flex gap-4 justify-end">
             <Button type="button" variant="outline" asChild>
               <Link to="/">Cancel</Link>
